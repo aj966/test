@@ -31,6 +31,15 @@
 			echo json_encode($res, JSON_NUMERIC_CHECK);
 			exit();
 		break;
+		case 'getPayments':
+			if (!isset($_POST['params'])) {
+				exit('getPayments not params');
+			}
+			$params = urldecode($_POST['params']);
+			$res = $api->call("/payment-history/v2/persons/". $phone ."/payments", json_decode($params));
+			echo json_encode($res, JSON_NUMERIC_CHECK);
+			exit();
+		break;
 	}
 	exit('error type');
 
