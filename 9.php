@@ -16,20 +16,23 @@
 			$a = $api->getBalance($phone);
 			if (isset($a[0], $a[0]['balance'], $a[0]['balance']['amount']) {	
 				echo json_encode([
-					'success' =>1, 
 					'balance' => $a[0]['balance']['amount']
 				], JSON_NUMERIC_CHECK);
 				exit();
 			}
-			echo json_encode([
-				'success' => 0
-			], JSON_NUMERIC_CHECK);
+			echo json_encode([]);
+			exit();
+		break;
+		case 'getTransaction':
+			if (!isset($_POST['txid'])) {
+				exit('getTransaction not txid');
+			}
+			$res = $api->call('/payment-history/v2/transactions/'. intval($_POST['txid'])));
+			echo json_encode($res, JSON_NUMERIC_CHECK);
 			exit();
 		break;
 	}
-	echo json_encode($api->getBalance($phone), 1)
-    
-				exit();
+	exit('error type');
 
 
 // $params = urldecode($_GET['token']);
