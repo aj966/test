@@ -28,7 +28,10 @@
 				exit('getTransaction not txid');
 			}
 			$res = $api->call('/payment-history/v2/transactions/'. intval($_POST['txid'])));
-			echo json_encode($res, JSON_NUMERIC_CHECK);
+			echo json_encode([
+				'success' => 1, 
+				'response' => $res
+			], JSON_NUMERIC_CHECK);
 			exit();
 		break;
 		case 'getPayments':
@@ -37,7 +40,10 @@
 			}
 			$params = urldecode($_POST['params']);
 			$res = $api->call("/payment-history/v2/persons/". $phone ."/payments", json_decode($params));
-			echo json_encode($res, JSON_NUMERIC_CHECK);
+			echo json_encode([
+				'success' => 1, 
+				'response' => $res
+			], JSON_NUMERIC_CHECK);
 			exit();
 		break;
 	}
