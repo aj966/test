@@ -14,11 +14,11 @@
 	switch ($type) {
 		case 'getBalance':
 			$a = $api->getBalance($phone);
-			if (isset($a[0], $a[0]['balance'], $a[0]['balance']['amount']) {	
+			if (isset($a[0], $a[0]['balance'], $a[0]['balance']['amount']) {
 				echo json_encode([
-					'balance' => $a[0]['balance']['amount']
+					'success' => 1, 
+					'response' => $a[0]['balance']['amount']
 				], JSON_NUMERIC_CHECK);
-				exit();
 			}
 			echo json_encode([]);
 			exit();
