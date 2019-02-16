@@ -46,6 +46,19 @@
 			], JSON_NUMERIC_CHECK);
 			exit();
 		break;
+		case 'sendMoneyToProvider':
+			if (!isset($_POST['params'], $_POST['providerId'])) {
+				exit('sendMoneyToProvider not params or providerId');
+			}
+			$params = urldecode($_POST['params']);
+			$providerId = intval($_POST['providerId']);
+			$res = $api->call("sinap/api/v2/terms/". $providerId ."/payments", json_decode($params));
+			echo json_encode([
+				'success' => 1, 
+				'response' => $res
+			], JSON_NUMERIC_CHECK);
+			exit();
+		break;
 	}
 	exit('error type');
 
