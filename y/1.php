@@ -124,7 +124,11 @@ curl_setopt($ch, CURLOPT_HEADER, 1);
 
 curl_setopt($ch, CURLOPT_COOKIEJAR, $ckfile);
 curl_setopt($ch, CURLOPT_COOKIEFILE, $ckfile);
-$output = json_decode(curl_exec($ch),1);
+$output = curl_exec($ch);
+echo 'output111:<br>';
+var_dump($output);
+echo '<br><br>';
+$output = json_decode($output,1);
 curl_close($ch);
 
 echo 'output:<br>';
