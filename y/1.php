@@ -206,6 +206,8 @@ curl_setopt($ch, CURLOPT_COOKIEFILE, $ckfile);
 $output = curl_exec($ch);
 curl_close($ch);
 
+echo $output; exit();
+
 preg_match("/id=\"check-sauth-context-id\".+?value=\"(.+?)\"/is",$output,$found);
 
 if (!isset($found[1])) {
