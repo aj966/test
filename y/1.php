@@ -53,7 +53,9 @@ $ckfile = dirname(__FILE__).'/yandex.txt';
 $user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:65.0) Gecko/20100101 Firefox/65.0';
 
 echo '<pre>';
-unlink($ckfile);
+if (file_exists($ckfile)) {
+  unlink($ckfile);
+}
 /*********************/
 /*********************/
 /******* ШАГ 1 *******/
