@@ -48,9 +48,6 @@ if (!isset($_POST['p1'])) {
     exit();
 }
 
-$f = fopen('yandex.txt', 'w');
-fclose($f);
-
 $ckfile = 'yandex.txt';
 
 $user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:65.0) Gecko/20100101 Firefox/65.0';
