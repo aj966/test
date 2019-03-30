@@ -124,24 +124,9 @@ curl_setopt($ch,CURLOPT_USERAGENT,$user_agent);
 curl_setopt($ch, CURLOPT_COOKIEJAR, $ckfile);
 curl_setopt($ch, CURLOPT_COOKIEFILE, $ckfile);
 $output = curl_exec($ch);
-echo 'output111:<br>';
-var_dump($output);
-echo '<br><br>';
 $output = json_decode($output,1);
 curl_close($ch);
 
-echo 'output:<br>';
-var_dump($output);
-echo '<br><br>';
-
-echo 'params:<br>';
-echo '<pre>'. print_r([
-	'csrf_token' => $csrf,
-	'process_uuid' => $process_uuid,
-	'login' => $login
-],1);
-
-exit();
 
 if (!isset($output['status']) || $output['status'] != 'ok') {
 	unlink($ckfile);
