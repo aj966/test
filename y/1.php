@@ -190,7 +190,7 @@ echo 'АВТОРИЗОВАНЫ' .'<br>';
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://money.yandex.ru/sign.xml?retpath=https%3A%2F%2Fmoney.yandex.ru%2Fmyservices%2Fnew.xml");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     'Host: money.yandex.ru',
 	'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
