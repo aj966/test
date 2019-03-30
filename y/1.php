@@ -120,7 +120,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
 ]));
 
 curl_setopt($ch,CURLOPT_USERAGENT,$user_agent);
-curl_setopt($ch, CURLOPT_HEADER, 1);
 
 curl_setopt($ch, CURLOPT_COOKIEJAR, $ckfile);
 curl_setopt($ch, CURLOPT_COOKIEFILE, $ckfile);
